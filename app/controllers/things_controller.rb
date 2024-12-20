@@ -57,6 +57,23 @@ class ThingsController < ApplicationController
     end
   end
 
+  def upvote
+    @thing = Thing.find(params[:id])
+    @thing.upvote!
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          helpers.dom_id(@thing, :votes),
+          partial: "things/votes",
+          locals: { thing: @thing }
+        )
+      end
+
+      format.html { redirect_to things_path }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_thing

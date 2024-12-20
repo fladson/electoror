@@ -16,6 +16,13 @@
       <p>
         <%= link_to "Show this thing", thing, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       </p>
+      <p>
+        <%= button_to upvote_thing_path(thing),
+          class: "rounded-lg py-2 px-4 bg-blue-600 text-white font-medium",
+          method: :post do %>
+            Upvote
+        <% end %>
+      </p>
     <% end %>
   </div>
 </div>
