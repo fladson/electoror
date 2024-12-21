@@ -5,24 +5,24 @@
 
   <% content_for :title, "Things" %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center mb-6">
     <h1 class="font-bold text-4xl">Things</h1>
-    <%= link_to "New thing", new_thing_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to "New thing", new_thing_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-blue-700 transition-colors" %>
   </div>
 
-  <div id="things" class="min-w-full">
+  <div id="things" class="min-w-full space-y-4">
     <% @things.each do |thing| %>
-      <%= render thing %>
-      <p>
-        <%= link_to "Show this thing", thing, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-      <p>
-        <%= button_to upvote_thing_path(thing),
-          class: "rounded-lg py-2 px-4 bg-blue-600 text-white font-medium",
-          method: :post do %>
-            Upvote
-        <% end %>
-      </p>
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <%= render thing %>
+        <div class="mt-4 flex items-center gap-3">
+          <%= link_to "Show this thing", thing, class: "rounded-lg py-2 px-4 bg-gray-100 inline-block font-medium hover:bg-gray-200 transition-colors" %>
+          <%= button_to upvote_thing_path(thing),
+            class: "rounded-lg py-2 px-4 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors",
+            method: :post do %>
+              Upvote
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

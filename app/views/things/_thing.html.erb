@@ -1,9 +1,8 @@
 <div id="<%= dom_id thing %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= thing.name %>
+  <p class="mb-4">
+    <strong class="block font-medium text-gray-700 mb-1">Name:</strong>
+    <span class="text-lg"><%= thing.name %></span>
   </p>
 
   <%= render "things/votes", thing: thing %>
-
 </div>

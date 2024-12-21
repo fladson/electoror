@@ -1,5 +1,5 @@
 <%= turbo_stream_from "votes" %>
-<p class="my-5" id="<%= dom_id(thing, :votes) %>">
-  <strong class="block font-medium mb-1">Votes:</strong>
-  <%= thing.votes %>
-</p>
+<div class="mb-4" id="<%= dom_id(thing, :votes) %>">
+  <strong class="block font-medium text-gray-700 mb-1">Votes:</strong>
+  <span class="text-lg font-semibold text-blue-600"><%= thing.votes %></span>
+</div>
